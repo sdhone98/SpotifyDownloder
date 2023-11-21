@@ -1,0 +1,50 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="W292" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N806" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="finished_good_equipment.models.FinishedGoodEquipment.objects" />
+          <option value="material_bom_service.models.LineFinishedGoodCache.objects" />
+          <option value="material_bom_service.models.MaterialMasterDataV1.objects" />
+          <option value="finished_good_equipment.models.FinishedGoodEquipmentUpperLowerLimitConfiguration.objects" />
+          <option value="part_family.models.PartFamily.objects" />
+          <option value="part_family.models.PartFamilyShopType.objects" />
+          <option value="part_validation_configuration.models.PartValidationConfiguration.objects" />
+          <option value="part_family_validation.models.PartValidationConfigurator.objects" />
+          <option value="manual_bom_upload.models.File.objects" />
+          <option value="barcode_pattern.models.BarcodeCodeTypes.objects" />
+          <option value="barcode_pattern.models.BarcodePattern.objects" />
+          <option value="barcode_pattern.models.BarcodeShopTypes.objects" />
+          <option value="material_bom_service.models.FinishedGoodGroupPartMapping.objects" />
+          <option value="material_bom_service.models.FinishedGoodLineMapping.objects" />
+          <option value="configurator_bridge.models.ConfiguratorBridgeV2LinePartFamilyMapping.objects" />
+          <option value="defect_checklist_master.models.DefectCheckList.objects" />
+          <option value="defect_checklist_master.models.DefectCheckListConfiguration.objects" />
+          <option value="manual_bom_upload.models.VehicleConfigurationBOM.objects" />
+          <option value="manual_bom_upload.models.AlternatePartMapping.objects" />
+          <option value="configurator_bridge.models.ConfiguratorBridgePartDetails.objects" />
+          <option value="configurator_bridge.models.ConfiguratorBridgeLineStationParts.objects" />
+          <option value="configurator_bridge.models.ConfiguratorBridgeLineStations.objects" />
+          <option value="configurator_bridge.models.ConfiguratorBridgePartFamilies.objects" />
+          <option value="configurator_bridge.models.ConfiguratorBridgeV2PartFamilies.objects" />
+          <option value="configurator_bridge.models.ConfiguratorBridgeV2LineStations.objects" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
