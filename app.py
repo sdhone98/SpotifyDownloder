@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from pytube import (YouTube, Search)
 from datetime import timedelta
 import os
+import webbrowser
 
 load_dotenv()
 
@@ -12,20 +13,18 @@ CLIENT_ID = os.environ.get('CLIENT_ID')
 CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 RE_DIRECT_URL = os.environ.get('RE_DIRECT_URL')
 API_URL = os.environ.get('API_URL')
-PATH = r""+os.environ.get('SONGS_LOCATION') if os.environ.get('SONGS_LOCATION') else r"C:\Spotify Songs"
-ASSESS_TOKEN = ''
-ASSESS_TOKEN_EXPIRE_TIME = 0
+PATH = os.environ.get('SONGS_LOCATION')
 
 
 # GENERATE ACCESS TOKEN FROM SPOTIFY
 def get_access_token():
     data = {
         'grant_type': 'client_credentials',
-        'client_id': os.environ.get('CLIENT_ID'),
-        'client_secret': os.environ.get('CLIENT_SECRET'),
+        'client_id': CLIENT_ID,
+        'client_secret': CLIENT_SECRET,
     }
 
-    response = requests.post(os.environ.get('RE_DIRECT_URL'), data=data)
+    response = requests.post(RE_DIRECT_URL, data=data)
     token_info = response.json()
     os.environ['ASSESS_TOKEN'] = token_info['access_token']
     os.environ['ASSESS_TOKEN_EXPIRE_TIME'] = str(token_info['expires_in'])
@@ -34,7 +33,6 @@ def get_access_token():
 
 # SEARCH SONGS FROM YOUTUBE
 def yt_search(list_of_song_names):
-
     for index, song in enumerate(list_of_song_names):
         song_name = f"{song['SONG NAME']} {song['ARTIST NAME']} {song['ALBUM NAME']}"
         s = Search(song_name)
@@ -74,7 +72,7 @@ def spotify_search(song_url: str):
     else:
         print("INVALID URL")
         exit()
-    response = requests.get(os.environ.get('API_URL') + end_point, headers=headers)
+    response = requests.get(API_URL + end_point, headers=headers)
     if response.status_code == 401 or response.status_code == 400:
         get_access_token()
         requests.get(API_URL + end_point, headers=headers)
@@ -129,7 +127,7 @@ def sanitize_filename(title: str):
 
 while True:
     print(f"\n--------- Type 'exit' for stop the process or you can close the window ---------")
-    if not ASSESS_TOKEN:
+    if not os.environ.get('ASSESS_TOKEN'):
         get_access_token()
     spotify_search(str(input('ENTER SPOTIFY SONG URL OR PLAYLIST URL : ')))
-    print(f"Songs Download on this location : \"{PATH}\"")
+    webbrowser.open("file:///" + PATH.replace("\\", "/"))
