@@ -1,5 +1,10 @@
 # Project README
 
+## Prerequisites
+
+- **Python Installation:**
+  - Make sure you have Python installed on your system. If not, download and install it from [python.org](https://www.python.org/).
+
 ## Getting Started
 
 1. **Create a Spotify Developer Account:**
